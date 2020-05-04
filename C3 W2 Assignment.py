@@ -5,16 +5,12 @@
 fname = input('Enter file name: ')
 fhand = open(fname)
 list = list()
+sum = 0
 
 import re
 for line in fhand :
-    line = line.split()
     extract = re.findall('([0-9]+)',line)
+    for num in extract :
+        sum = sum + float(num)
 
-    if len(extract) < 1 : continue
-
-    for i in range(len(extract)):
-        num = float(extract[i])
-        list.append(num)
-
-print(sum(list))
+print(int(sum))
